@@ -1,0 +1,29 @@
+frameworkVersion: '3'
+service: serverless-ts-esbuild-template
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+  timeout: 30
+
+functions:
+  hello:
+    handler: src/functions/index.hello
+    events:
+      - http:
+          path: hello
+          method: get
+
+package:
+  individually: true
+
+plugins:
+  - serverless-esbuild
+  - serverless-dotenv-plugin
+  - serverless-plugin-common-excludes
+  - serverless-offline
+
+custom:
+  esbuild:
+    minify: true
