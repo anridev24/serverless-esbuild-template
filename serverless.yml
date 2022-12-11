@@ -1,5 +1,5 @@
 frameworkVersion: '3'
-service: serverless-ts-esbuild-template
+service: serverless-esbuild-template
 
 provider:
   name: aws
